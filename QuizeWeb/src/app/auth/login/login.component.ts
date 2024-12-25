@@ -7,15 +7,17 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { AuthService } from '../../services/authService/auth.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../../services/storage/storage.service';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,NzFormModule, NzButtonModule,RouterLink ,NzInputModule],
+  imports: [ReactiveFormsModule,NzFormModule, NzButtonModule,RouterLink ,NzInputModule ,NzIconModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  passwordVisible=false;
 
 constructor(private fb :FormBuilder
     , private router:Router,private message :NzMessageService

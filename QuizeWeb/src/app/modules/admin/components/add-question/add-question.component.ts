@@ -70,9 +70,12 @@ export class AddQuestionComponent implements OnInit{
               }
             });
           }
-      
+   }
 
 
-    }
+   resetForm(e: MouseEvent): void {
+    e.preventDefault();
+    this.questionForm.reset();
+  }
 
 }

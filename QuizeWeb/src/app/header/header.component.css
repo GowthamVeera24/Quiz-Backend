@@ -1,11 +1,14 @@
 .header
 {
-  position: flex;
+
+  position: sticky; /* fixed the header */
+  
   background-color:  #023e76;
-  height: 81px;
+  height: 55px;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
+  padding-top: 0px;
+  z-index: 1; /* make the content of page under the header*/
 
 }
 .button active
@@ -39,12 +42,5 @@
   margin-left: 7px;
 }
 
-.container
-{
-  position: fixed;
-  top:0;
-  width: 100%;
-  z-index: 9;
-}
 
 
