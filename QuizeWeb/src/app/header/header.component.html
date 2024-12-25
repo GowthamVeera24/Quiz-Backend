@@ -1,0 +1,64 @@
+<div *ngIf="!isAdminLogged && !isUserLogged"  class="header">
+  <nav class="navbar navbar-expand-lg  
+   navbar-scroll  shadow-0 " >
+    <div class="container-fluid">
+      <a class="navbar-brand"  routerLink="employees" routerLinkActive="active" style="font-size: 25px; color: rgb(255, 255, 255);"> Quiz App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="control">
+          <button nz-button   routerLink="/login"routerLinkActive="active" type="submit">LogIn</button>
+  
+          <button nz-button   routerLink="/register" routerLinkActive="active" type="submit">SignUp</button>
+  
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isAdminLogged" class="header">
+  <nav class="navbar navbar-expand-lg navbar-scroll  shadow-0 " >
+    <div class="container-fluid">
+      <a class="navbar-brand"  routerLink="/admin/dashboard" routerLinkActive="active" 
+       style="font-size: 25px; color: rgb(255, 255, 255);">Quiz App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
+        <div class="control">
+          <button class="btn btn-outline-success"  routerLink="/admin/dashboard" routerLinkActive="active" >Dashboard</button>
+
+          <button class="btn btn-primary"  routerLink="/admin/create-test" routerLinkActive="active" >Create Test</button>
+          <button class="btn btn-primary"  routerLink="/admin/view-test-results" routerLinkActive="active" type="submit">View Results</button>
+
+          <button class="btn btn-outline-danger" (click)="logout()" type="submit">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isUserLogged" class="header">
+  <nav class="navbar navbar-expand-lg navbar-scroll  shadow-0 " >
+    <div class="container-fluid">
+      <a class="navbar-brand"  routerLink="/user/dashboard" routerLinkActive="active" href="#"
+       style="font-size: 25px; color: rgb(255, 255, 255);">Quiz App </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="control">
+          <button class="btn btn-outline-success"  routerLink="/user/user_dashboard" routerLinkActive="active" type="submit">Dashboard</button>
+          <button class="btn btn-primary"  routerLink="/user/view-test-results" routerLinkActive="active" type="submit">View Results</button>
+          <button class="btn btn-outline-danger" (click)="logout()" type="submit">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
