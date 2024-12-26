@@ -1,7 +1,8 @@
 [The project is not finished yet]
 
 This is full stack project (Spring Boot and Angular)
-************************** Back-End ******************** 
+
+-************************** Back-End ******************** 
 - Spring Boot 3.4  , Java 17
 -consist of sections :
 - dependencies : Spring Web , Spring Data JPA , MySQL Driver , Spring boot DevTools 
