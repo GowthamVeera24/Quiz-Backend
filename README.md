@@ -6,20 +6,21 @@ This is full stack project (Spring Boot and Angular)
 - Spring Boot 3.4  , Java 17
 - pom.xml ==> dependencies : Spring Web , Spring Data JPA , MySQL Driver , Spring boot DevTools
 - application.properties ==> contain database configuration (URL , username , password )
--consist of packages :
-- Entity ==> for (User , Test , Question)
-- Repositories ==> each entity must has it's own repo interface to allow access and persist data between Java class and relational database
-- Enums ==> UserRole that contain (ADMIN , USER)
-- Dto ==> Instead of dealing with Entity , using Dto for request and response (loginDto , signupDto , testDto , questionDto , 
-         testDetailsDto (return testDto and list of it's questions))
-- Services ==> where write business logic and there are two Interfaces that will deal with controllers later (userService and 
-          testService) and their implementations (userServiceImpl and testServiceImpl)where implement abstract methods
-     * userServiceImpl : contains implementations of login , signup and create Admin account for the first run of the project
-     * testServiceImpl : contains implementations of create test , get all tests , calculate time of each task depends on the number 
-                         of questions belongs to , add questions for each test , get All questions
-
-- Controllers ==> where handle incoming HTTP requests and determine the appropriate response to send back , there are two controller , 
-               one for Users and other for (tests and questions)
+- Packages :
+    - Entity ==> for (User , Test , Question)
+    - Repositories ==> each entity must has it's own repo interface to allow access and persist data between Java class and relational 
+      database
+    - Enums ==> UserRole that contain (ADMIN , USER)
+    - Dto ==> Instead of dealing with Entity , using Dto for request and response (loginDto , signupDto , testDto , questionDto , 
+             testDetailsDto (return testDto and list of it's questions))
+    - Services ==> where write business logic and there are two Interfaces that will deal with controllers later (userService and 
+              testService) and their implementations (userServiceImpl and testServiceImpl)where implement abstract methods
+         * userServiceImpl : contains implementations of login , signup and create Admin account for the first run of the project
+         * testServiceImpl : contains implementations of create test , get all tests , calculate time of each task depends on the 
+            number of questions belongs to , add questions for each test , get All questions
+    
+    - Controllers ==> where handle incoming HTTP requests and determine the appropriate response to send back , there are two 
+        controller , one for Users and other for (tests and questions)
 
                                 **************** Front-End *************************
 - Angular 18 , bootstrap 5.3.3 ,  Angular UI library(ng-zorro-antd 18.2.1)
