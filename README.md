@@ -25,7 +25,7 @@ This is full stack project (Spring Boot and Angular)
                                 **************** Front-End *************************
 - Angular 18 , bootstrap 5.3.3 ,  Angular UI library(ng-zorro-antd 18.2.1)
 - App component contains some folders:
-  1- auth folder which contain two component (login and register)
+  1 - auth folder which contain two component (login and register)
     - login form wait email and password from user and validate if this user exist in database or not , return with response contains 
       user's information (id , email , name , role)
     - if you run project for first time , admin account will be created automatically which has email 
@@ -38,21 +38,21 @@ This is full stack project (Spring Boot and Angular)
       
     - If you are user  you must register first then login , after that you will be directed to main user page with special navbar that 
        has buttons (dashboard , View Results , logout)
-  2- header component that has copies of the navbar but with different condition , each navbar will appear according to the role of 
+  2 - header component that has copies of the navbar but with different condition , each navbar will appear according to the role of 
      the logged user or non logged/registered
      - add header selector inside app Html component to be found in all pages and also add router-outlet directive which dynamically 
       load different components based on the current URL route.
 
-  3- modules folder : there are tow modules (admin and user) with their routing
+  3 - modules folder : there are tow modules (admin and user) with their routing
       3.1- Admin : has two folders (components and service)
         - components include (add-questions , dshboard , create- test , view-test-details) and each component has it's path in admin- 
           routing-module
-        - service : to get data from web services and can be injectable and used by admin components 
+        - service : to get data from web services and can be injectable and used by admin components
       3.2- User : has also two folders (components and service)
           - components include ( dshboard ) and each component has it's path in user- 
           routing-module
         - service : to get data from web services and can be injectable and used by user components
-  4- services folder : includes tow services (auth and storage)
-     4.1- auth service : to get data from login and register web services
-     4.2- storage service : to save informations from return response to use them later like get userId , userRole , knowing if admin 
-        is logged or user  in order to be directed to a specific page , logout
+  4 - services folder : includes tow services (auth and storage)
+      4.1 - auth service : to get data from login and register web services
+      4.2 - storage service : to save informations from return response to use them later like get userId , userRole , knowing if 
+       admin is logged or user  in order to be directed to a specific page , logout
