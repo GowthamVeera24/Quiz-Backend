@@ -25,16 +25,19 @@ This is full stack project (Spring Boot and Angular)
                                 **************** Front-End *************************
 - Angular 18 , bootstrap 5.3.3 ,  Angular UI library(ng-zorro-antd 18.2.1)
 - App component contains some folders:
+  
   1 - auth folder which contain two component (login and register)
-    - login form wait email and password from user and validate if this user exist in database or not , return with response contains 
-      user's information (id , email , name , role)
-    - if you run project for first time , admin account will be created automatically which has email 
-      (admin1985@gmail.com) and password(admin1985)
-    - If you log in as an admin, you will be directed to a main admin page (dashboard) with special admin navbar that contains buttons 
-      (Dashboard, Create test , View Results , logout)
-        -  (dashboard) that contains all available tests , you can view each test details with it's questions or add new questions
-        - (Create Test) to add new test (title , description , time suitable for each question)
-        - (View Results ) :
+      - login form wait email and password from user and validate if this user exist in database or not , return with response 
+        contains 
+        user's information (id , email , name , role)
+      - if you run project for first time , admin account will be created automatically which has email 
+        (admin1985@gmail.com) and password(admin1985)
+      - If you log in as an admin, you will be directed to a main admin page (dashboard) with special admin navbar that contains 
+  buttons 
+        (Dashboard, Create test , View Results , logout)
+          -  (dashboard) that contains all available tests , you can view each test details with it's questions or add new questions
+          - (Create Test) to add new test (title , description , time suitable for each question)
+          - (View Results ) :
       
     - If you are user  you must register first then login , after that you will be directed to main user page with special navbar that 
        has buttons (dashboard , View Results , logout)
