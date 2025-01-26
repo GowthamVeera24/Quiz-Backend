@@ -1,49 +1,39 @@
 package com.Quiz_server.entity;
 
 import com.Quiz_server.Dto.QuestionDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "question")
+@Document(collection = "questiondata")
 public class Question {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	private String QuestionText;
-	
+	private String id;
+
+	private String questionText;
 	private String optionA;
 	private String optionB;
 	private String optionC;
 	private String optionD;
 	private String correctOption;
-	
-	@ManyToOne
-	@JoinColumn(name = "test_id")
-	private Test test;
 
-	public long getId() {
+	private String testId; // Reference to the Test ID
+
+	// Getters and Setters
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	public String getQuestionText() {
-		return QuestionText;
+		return questionText;
 	}
 
 	public void setQuestionText(String questionText) {
-		QuestionText = questionText;
+		this.questionText = questionText;
 	}
 
 	public String getOptionA() {
@@ -86,31 +76,26 @@ public class Question {
 		this.correctOption = correctOption;
 	}
 
-	public Test getTest() {
-		return test;
+	public String getTestId() {
+		return testId;
 	}
 
-	public void setTest(Test test) {
-		this.test = test;
+	public void setTestId(String testId) {
+		this.testId = testId;
 	}
 
+	// Method to convert Question to QuestionDto
 	public QuestionDto getDto() {
-		
 		QuestionDto dto = new QuestionDto();
-		
-		dto.setId(id);
-		dto.setQuestionText(QuestionText);
-		dto.setOptionA(optionA);
-		dto.setOptionB(optionB);
-		dto.setOptionB(optionB);
-		dto.setOptionC(optionC);
-		dto.setOptionD(optionD);
-		dto.setCorrectOption(correctOption);
-		dto.setTest_id(test.getId());
-		
+		dto.setId(this.id); // id is a String
+		dto.setQuestionText(this.questionText);
+		dto.setOptionA(this.optionA);
+		dto.setOptionB(this.optionB);
+		dto.setOptionC(this.optionC);
+		dto.setOptionD(this.optionD);
+		dto.setCorrectOption(this.correctOption);
+		dto.setTestId(this.testId); // testId is a String
 		return dto;
 	}
-	
-	
 
 }

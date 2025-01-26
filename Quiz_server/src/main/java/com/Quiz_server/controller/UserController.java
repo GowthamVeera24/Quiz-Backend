@@ -36,15 +36,24 @@ public class UserController {
 			return new ResponseEntity<>("In Valid Email , try again" , HttpStatus.BAD_REQUEST);
 		return  ResponseEntity.ok(dto);
 	}
-	
-	
+
+
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody LoginDto loginDto){
-		
-		  User user=  userService.login(loginDto);
-		  if(user== null)
-			  return new ResponseEntity<>(" Bad Credentials ..." , HttpStatus.NOT_ACCEPTABLE);
-		  return  ResponseEntity.ok(user);
-		  
+	public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
+		User user = userService.login(loginDto);
+		if (user == null) {
+			return new ResponseEntity<>("Bad Credentials ...", HttpStatus.NOT_ACCEPTABLE);
+		}
+
+		// Return only the user data without the userDto
+		SignUpDto responseDto = new SignUpDto();
+		responseDto.setId(user.getId());
+		responseDto.setEmail(user.getEmail());
+		responseDto.setPassword(user.getPassword());
+		responseDto.setName(user.getName());
+		responseDto.setUserRole(user.getUserRole());
+
+		return ResponseEntity.ok(responseDto);
 	}
+
 }

@@ -9,7 +9,7 @@ public interface TestServcie {
 
 	TestDto createTest(TestDto dto);
 	
-	QuestionDto addQuestionTotest( Long testId,  QuestionDto dto);
+	QuestionDto addQuestionTotest(String testId, QuestionDto dto);
 	
 	List<TestDto> getAllTests();
 }

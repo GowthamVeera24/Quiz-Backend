@@ -8,28 +8,23 @@ import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "user")
+@Document(collection = "userdata")
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id ;
+
+	private String id ;
 	
 	
 	private String email;
 	private String password;
 	private String name;
 	private UserRole userRole;
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -54,27 +49,24 @@ public class User {
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
 	}
-	
+
 	public SignUpDto getUserDto() {
-		
 		SignUpDto signUpDto = new SignUpDto();
-		
-		signUpDto.setId(id);
-		signUpDto.setName(name);
-		signUpDto.setEmail(email);
-		signUpDto.setPassword(password);
-		signUpDto.setUserRole(userRole);
-		
+		signUpDto.setId(this.id); // Ensure the ID is passed from User entity
+		signUpDto.setName(this.name);
+		signUpDto.setEmail(this.email);
+		signUpDto.setPassword(this.password);
+		signUpDto.setUserRole(this.userRole);
 		return signUpDto;
 	}
-	
-	public LoginDto getLoginDto() {
-		LoginDto loginDto =new LoginDto();
-		
-		loginDto.setEmail(email);
-		loginDto.setPassword(password);
-		
-		return loginDto; 
-	}
 
+
+
+	public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
